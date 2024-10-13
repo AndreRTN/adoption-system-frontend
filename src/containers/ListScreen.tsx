@@ -6,7 +6,6 @@ import IAnimalResponseData from "../types/IAnimalResponseData";
 
 const AnimalList: React.FC = () => {
   const [animals, setAnimals] = useState<IAnimalResponseData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [showLoadingModal, setShowLoadingModal] = useState<boolean>(true);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const AnimalList: React.FC = () => {
         toast.error("Erro ao carregar os animais!");
         console.error("Erro ao carregar os animais:", error);
       } finally {
-        setLoading(false);
         setShowLoadingModal(false);
       }
     };

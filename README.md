@@ -53,7 +53,7 @@ Projeto de gestão de adoção de animais
 
 > - React
 > - Typescript
-r
+
 
 
 - >### Executando diretamente (Necessário Node na máquina)

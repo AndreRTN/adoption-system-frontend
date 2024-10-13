@@ -9,5 +9,6 @@ services:
     volumes:
       - ./src:/adoption-frontend/src
       - ./public:/adoption-frontend/public
+      
     working_dir: /adoption-frontend
     command: npm start
