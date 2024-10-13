@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# adoption-frontend-react
+Projeto de gestão de adoção de animais
+---
+
+> Frontend do sistema de gestão de adoção de animais
+
+> - React
+> - Typescript
+r
+
+
+- >### Executando diretamente (Necessário Node na máquina)
+  > - Abrindo o projeto no VSCode e digitando npm install -> npm start
+          
+- > ### Docker compose (default) (necessário docker na máquina)
+  > - Rodar o comando: docker-compose up --build (apenas na primeira vez, após isso subirá um container)
+  > - Qualquer alteração feita no projeto será atualizada no container, basta parar a aplicação e rodar novamente

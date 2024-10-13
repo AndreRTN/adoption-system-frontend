@@ -1,0 +1,13 @@
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/adoption-frontend/src
+      - ./public:/adoption-frontend/public
+    working_dir: /adoption-frontend
+    command: npm start
