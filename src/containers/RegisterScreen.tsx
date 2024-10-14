@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css"; 
@@ -8,7 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { Modal, Spinner } from "react-bootstrap";  
 import { format } from "date-fns"; 
-  
+import { useNavigate } from "react-router-dom";
+
+
+
 interface Errors {
     name?: string;
     description?: string;
@@ -21,6 +24,7 @@ interface Errors {
 
 function RegisterScreen() {
 
+    const navigate = useNavigate()
     const [formData, setFormData] = useState<IAnimalRequestData>({
         name: "",
         description: "",
@@ -35,12 +39,18 @@ function RegisterScreen() {
       const [loading, setLoading] = useState(false);
       const [showLoadingModal, setShowLoadingModal] = useState(false);
 
+      useEffect(() => {
+        const validationErrors = validateForm(formData);
+        setErrors(validationErrors);
+      },[formData])
+
 const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
     }));
+    
   };
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -114,7 +124,7 @@ const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         toast.error("Erro ao cadastrar o animal.");
         console.log("Error:", e)
       }
-      ).finally(() => changeLoading(false))
+      ).finally(() => navigate("/list") )
 
     } else {
       setErrors(validationErrors);
