@@ -207,7 +207,8 @@ const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
           <Form.Label style={{color: errors.currentBirthDate && "red"}}>Data de nascimento</Form.Label>
           <InputGroup>
             <DatePicker
-              
+              showIcon
+              showYearDropdown
               selected={formData.currentBirthDate}
               onChange={handleDateChange}
               dateFormat="dd/MM/yyyy"
